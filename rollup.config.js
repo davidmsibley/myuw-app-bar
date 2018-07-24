@@ -112,4 +112,43 @@ export default [
       format: 'iife'
     }
   },
+  {
+    input: 'src/vanilla.js',
+    plugins: [
+      resolve(),
+      html({
+        include: 'src/myuw-app-bar.html',
+        htmlMinifierOptions: {
+          collapseWhitespace: true,
+          collapseBooleanAttributes: true,
+          conservativeCollapse: true
+        }
+      })
+    ],
+    output: {
+      file: 'dist/vanilla/myuw-app-bar.js',
+      name: 'MyuwAppBar',
+      format: 'iife'
+    }
+  },
+  {
+    input: 'src/vanilla.js',
+    plugins: [
+      resolve(),
+      html({
+        include: 'src/myuw-app-bar.html',
+        htmlMinifierOptions: {
+          collapseWhitespace: true,
+          collapseBooleanAttributes: true,
+          conservativeCollapse: true
+        }
+      }),
+      minify()
+    ],
+    output: {
+      file: 'dist/vanilla/myuw-app-bar.min.js',
+      name: 'MyuwAppBar',
+      format: 'iife'
+    }
+  },
 ];
